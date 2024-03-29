@@ -1,0 +1,6 @@
+{
+    "manifest_version": 3,
+    "name": "Tab Sort",
+    "description": "Automatically sort your tabs at the click of a button!",
+    "version": "0.0.1"
+  }

@@ -3,10 +3,20 @@
     "name": "Tab Sort",
     "description": "Automatically sort your tabs at the click of a button!",
     "version": "0.0.1",
+    "background": {
+        "service_worker": "service-worker.js",
+        "type": "module"
+    },
     "action": {
         "default_popup": "popup/popup.html"
     },
     "permissions": [
         "tabs"
-    ]
-  }
+    ],
+    "commands": {
+        "sort-url-alphabetically": {
+            "suggested_key": "Ctrl+Shift+Left",
+            "description": "Sort tabs by URL in descending order."
+        }
+    }
+}

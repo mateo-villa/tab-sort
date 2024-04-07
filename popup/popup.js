@@ -1,6 +1,14 @@
-let sortButton = document.getElementById("sortButton");
-sortButton.onclick = function () {
+let sortDescendingButton = document.getElementById("sortButtonDescending");
+let sortAscendingButton = document.getElementById("sortButtonAscending");
+
+sortDescendingButton.onclick = function () {
     chrome.runtime.sendMessage({
-        message: "sortTabs"
+        message: "sortTabsDescending"
     });
-}
+};
+
+sortAscendingButton.onclick = function () {
+    chrome.runtime.sendMessage({
+        message: "sortTabsAscending"
+    });
+};

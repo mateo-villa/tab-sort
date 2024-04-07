@@ -1,5 +1,11 @@
-sortByUrl();
+let sortButton = document.getElementById("sortButton");
+sortButton.onclick = function () {
+    chrome.runtime.sendMessage({
+        message: "sortTabs"
+    });
+}
 
+/*
 function sortByUrl() {
     chrome.tabs.query({windowId: chrome.windows.WINDOW_ID_CURRENT}, (tabs) => {
         tabs.sort(sortUrlAlphabetically);
@@ -17,3 +23,4 @@ function sortUrlAlphabetically(tab1, tab2) {
     }
     return 0;
 }
+*/

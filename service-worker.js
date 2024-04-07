@@ -1,3 +1,11 @@
+// Handle messages from button click events
+chrome.runtime.onMessage.addListener((message) => {
+    if (message.message === "sortTabs") {
+        sortByUrl(true);
+    }
+});
+
+// Handle keyboard shortcut commands
 chrome.commands.onCommand.addListener((command) => {
     if (command === "sort-url-descending") {
         sortByUrl();

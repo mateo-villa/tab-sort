@@ -1,7 +1,9 @@
 // Handle messages from button click events
 chrome.runtime.onMessage.addListener((message) => {
-    if (message.message === "sortTabs") {
+    if (message.message === "sortTabsDescending") {
         sortByUrl(true);
+    } else if (message.message === "sortTabsAscending") {
+        sortByUrl();
     }
 });
 

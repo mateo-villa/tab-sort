@@ -1,21 +1,40 @@
 chrome.commands.onCommand.addListener((command) => {
-    sortByUrl();
+    if (command === "sort-url-descending") {
+        sortByUrl();
+    } else if (command === "sort-url-ascending") {
+        sortByUrl(true);
+    } else {
+        console.log(`No action defined for command ${command}.`);
+    }
 });
 
-function sortByUrl() {
+function sortByUrl(descending) {
     chrome.tabs.query({windowId: chrome.windows.WINDOW_ID_CURRENT}, (tabs) => {
-        tabs.sort(sortUrlAlphabetically);
+        if (descending) {
+            tabs.sort(sortUrlDescending);
+        } else {
+            tabs.sort(sortUrlAscending);
+        }
         for (let index = 0; index < tabs.length; ++index) {
             chrome.tabs.move(tabs[index].id, {index: index});
         }
     });
 }
 
-function sortUrlAlphabetically(tab1, tab2) {
+function sortUrlDescending(tab1, tab2) {
     if (tab1.url < tab2.url) {
         return -1;
     } else if (tab1.url > tab2.url) {
         return 1;
+    }
+    return 0;
+}
+
+function sortUrlAscending(tab1, tab2) {
+    if (tab1.url < tab2.url) {
+        return 1;
+    } else if (tab1.url > tab2.url) {
+        return -1;
     }
     return 0;
 }

@@ -14,9 +14,13 @@
         "tabs"
     ],
     "commands": {
-        "sort-url-alphabetically": {
+        "sort-url-descending": {
             "suggested_key": "Ctrl+Shift+Left",
             "description": "Sort tabs by URL in descending order."
+        },
+        "sort-url-ascending": {
+            "suggested_key": "Ctrl+Shift+Right",
+            "description": "Sort tabs by URL in ascending order."
         }
     }
 }

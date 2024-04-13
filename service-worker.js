@@ -4,6 +4,8 @@ chrome.runtime.onMessage.addListener((message) => {
         sortByUrl(true);
     } else if (message.message === "sortTabsAscending") {
         sortByUrl();
+    } else if (message.message === "openUserGuide") {
+        openUserGuide();
     }
 });
 
@@ -17,6 +19,12 @@ chrome.commands.onCommand.addListener((command) => {
         console.log(`No action defined for command ${command}.`);
     }
 });
+
+function openUserGuide() {
+    chrome.tabs.create({
+        url: "user_guide.html"
+    });
+}
 
 function sortByUrl(descending) {
     chrome.tabs.query({windowId: chrome.windows.WINDOW_ID_CURRENT}, (tabs) => {
